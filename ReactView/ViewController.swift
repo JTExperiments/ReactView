@@ -8,12 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     private var collectionPresenter : CollectionPresenter?
-    private var showStockedOnly : Bool = false
     private var products : [NSDictionary]?
+    private var showStockedOnly : Bool = false
+    private var filterKeyword : String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +35,19 @@ class ViewController: UIViewController {
             let sections = products.map {
                 Product(dictionary: $0)
                 }.filter {
-                    println($0)
                     return self.showStockedOnly ? $0.stocked : true
+                }.filter {
+
+                    switch ($0.name, self.filterKeyword) {
+                    case let (.Some(name), .Some(keyword)):
+
+                        let name : NSString = name
+                        let notFound = name.rangeOfString(keyword, options: .CaseInsensitiveSearch).location == NSNotFound
+                        return !notFound
+
+                    default:
+                        return true
+                    }
                 }.map {
                     product -> ItemPresenter in
                     return ProductPresenter(identifier: "cell", product: product)
@@ -64,6 +76,13 @@ class ViewController: UIViewController {
 
     @IBAction func switchValueDidChange(sender: UISwitch) {
         self.showStockedOnly = sender.on
+        self.display()
+    }
+
+    // MARK: UISearchBarDelegate
+
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        self.filterKeyword = searchText.utf16Count > 0 ? searchText : nil
         self.display()
     }
 

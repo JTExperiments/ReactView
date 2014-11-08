@@ -11,47 +11,60 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
-
-    var collectionPresenter : CollectionPresenter?
+    private var collectionPresenter : CollectionPresenter?
+    private var showStockedOnly : Bool = false
+    private var products : [NSDictionary]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let json : AnyObject? = JSONLoader(name: "products").json
-        let products = (json as? NSDictionary)?["products"] as? [NSDictionary]
+        self.products = (json as? NSDictionary)?["products"] as? [NSDictionary]
+        self.display()
+    }
+
+    func display() {
 
         let collectionPresenter = CollectionPresenter(collectionView: self.collectionView)
+        let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        flowLayout?.itemSize = CGSize(width: self.view.frame.size.width, height: flowLayout!.itemSize.height)
 
-        if let products = products {
+        if let products = self.products {
 
             let sections = products.map {
-                dictionary -> ItemPresenter in
+                Product(dictionary: $0)
+                }.filter {
+                    println($0)
+                    return self.showStockedOnly ? $0.stocked : true
+                }.map {
+                    product -> ItemPresenter in
+                    return ProductPresenter(identifier: "cell", product: product)
+                }.reduce([SectionPresenter]()) {
 
-//                return ProductDictionaryPresenter(identifier: "cell", dictionary: dictionary)
+                    var sections = $0
+                    var item = $1
 
-                return ProductPresenter(identifier: "cell", product: Product(dictionary: dictionary))
+                    var targetSection = sections.last
+                    if targetSection == nil || targetSection?.title != item.section {
+                        let title = item.section
+                        targetSection = SectionPresenter(identifier: "categoryHeader", title: title)
+                        sections.append(targetSection!)
+                    }
 
-            }.reduce([SectionPresenter]()) {
-
-                var sections = $0
-                var item = $1
-
-                var targetSection = sections.last
-                if targetSection == nil || targetSection?.title != item.section {
-                    let title = item.section
-                    targetSection = SectionPresenter(identifier: "categoryHeader", title: title)
-                    sections.append(targetSection!)
-                }
-
-                targetSection?.items.append(item)
-                return sections
+                    targetSection?.items.append(item)
+                    return sections
             }
 
             collectionPresenter.sections = sections
         }
-
+        
         self.collectionPresenter = collectionPresenter
         collectionPresenter.display()
+    }
+
+    @IBAction func switchValueDidChange(sender: UISwitch) {
+        self.showStockedOnly = sender.on
+        self.display()
     }
 
 }
@@ -69,31 +82,6 @@ struct Product {
         self.stocked = (dictionary["stocked"] as? NSNumber)?.boolValue ?? false
     }
 }
-
-class ProductDictionaryPresenter : ItemPresenter {
-
-    private var dictionary : NSDictionary?
-
-    @IBOutlet weak var nameLabel : UILabel?
-    @IBOutlet weak var priceLabel : UILabel?
-
-    init(identifier: String, dictionary: NSDictionary?) {
-        super.init(identifier: identifier, section: dictionary?["category"] as? String)
-        self.dictionary = dictionary
-    }
-
-    override func configureCollectionViewCell(cell: UICollectionViewCell) {
-        self.nameLabel = cell.viewWithTag(1) as? UILabel
-        self.priceLabel = cell.viewWithTag(2) as? UILabel
-    }
-
-    override func display() {
-        self.nameLabel?.text = dictionary?["name"] as? String
-        self.nameLabel?.textColor = (dictionary?["stocked"] as? NSNumber)?.boolValue ?? false ? UIColor.blackColor() : UIColor.redColor()
-        self.priceLabel?.text = dictionary?["price"] as? String
-    }
-}
-
 
 class ProductPresenter : ItemPresenter {
 

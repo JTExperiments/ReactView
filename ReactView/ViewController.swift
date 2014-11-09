@@ -26,9 +26,11 @@ class ViewController: UIViewController, UISearchBarDelegate {
 
     func display() {
 
-        let collectionPresenter = CollectionPresenter(collectionView: self.collectionView)
-        let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
-        flowLayout?.itemSize = CGSize(width: self.view.frame.size.width, height: flowLayout!.itemSize.height)
+        if self.collectionPresenter == nil {
+            self.collectionPresenter = CollectionPresenter(collectionView: self.collectionView)
+            let flowLayout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+            flowLayout?.itemSize = CGSize(width: self.view.frame.size.width, height: flowLayout!.itemSize.height)
+        }
 
         if let products = self.products {
 
@@ -67,11 +69,10 @@ class ViewController: UIViewController, UISearchBarDelegate {
                     return sections
             }
 
-            collectionPresenter.sections = sections
+            collectionPresenter!.sections = sections
         }
         
-        self.collectionPresenter = collectionPresenter
-        collectionPresenter.display()
+        collectionPresenter!.display()
     }
 
     @IBAction func switchValueDidChange(sender: UISwitch) {
@@ -110,7 +111,7 @@ class ProductPresenter : ItemPresenter {
     @IBOutlet weak var priceLabel : UILabel?
 
     init(identifier: String, product: Product) {
-        super.init(identifier: identifier, section: product.category)
+        super.init(identifier: identifier, section: product.category, key: product.name!)
         self.product = product
     }
 

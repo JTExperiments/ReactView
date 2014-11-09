@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CollectionPresenter : NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
+class CollectionPresenter : NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     private var collectionView : UICollectionView!
     var sections : [SectionPresenter]?
@@ -52,6 +52,15 @@ class CollectionPresenter : NSObject, UICollectionViewDataSource, UICollectionVi
         return view
     }
 
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewFlowLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let section = indexPath.section
+        let row = indexPath.row
+        if let item = self.sections?[section].items[row] {
+            return item.collectionView(collectionView, layout: collectionViewLayout, sizeForItemAtIndexPath: indexPath)
+        }
+        return collectionViewLayout.itemSize
+    }
+
 }
 
 class SectionPresenter {
@@ -89,5 +98,34 @@ class ItemPresenter {
     // Override by subclass
     func configureCollectionViewCell(cell: UICollectionViewCell) {}
     func display() {}
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewFlowLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return collectionViewLayout.itemSize
+    }
 }
 
+class ItemNibPresenter : ItemPresenter {
+
+    var nib : UINib?
+    var sizeHandler : ((estimatedSize:CGSize) -> CGSize)?
+    private var prototypeCell : UICollectionViewCell?
+
+    override func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewFlowLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+
+        let originalSize = super.collectionView(collectionView, layout: collectionViewLayout, sizeForItemAtIndexPath: indexPath)
+
+        if prototypeCell == nil {
+            prototypeCell = nib?.instantiateWithOwner(nil, options: nil).first as? UICollectionViewCell
+        }
+
+        if let cell = prototypeCell {
+            self.configureCollectionViewCell(cell)
+            self.display()
+            var size = cell.systemLayoutSizeFittingSize(CGSize(width: originalSize.width, height: UILayoutFittingCompressedSize.height))
+//            size.width = originalSize.width
+            println("size \(size)")
+            return size
+        }
+
+        return originalSize
+    }
+}

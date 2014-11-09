@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="rpZ-jC-BLP">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VX8-hS-vJ4">
+                        <rect key="frame" x="15" y="20" width="43" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2d-qI-tHC">
+                        <rect key="frame" x="266" y="19" width="39" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qoS-nw-TEY">
+                        <rect key="frame" x="15" y="59" width="305" height="1"/>
+                        <color key="backgroundColor" red="0.91764706370000004" green="0.92549020049999997" blue="0.94117647410000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="EwX-Ub-cwJ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="VX8-hS-vJ4" firstAttribute="leading" secondItem="rpZ-jC-BLP" secondAttribute="leading" constant="15" id="59p-1I-WMG"/>
+                <constraint firstAttribute="trailing" secondItem="qoS-nw-TEY" secondAttribute="trailing" id="Aol-Jy-AFV"/>
+                <constraint firstAttribute="trailing" secondItem="u2d-qI-tHC" secondAttribute="trailing" constant="15" id="Hfs-a6-V8s"/>
+                <constraint firstAttribute="bottom" secondItem="qoS-nw-TEY" secondAttribute="bottom" id="TCr-bB-Cb6"/>
+                <constraint firstAttribute="bottom" secondItem="VX8-hS-vJ4" secondAttribute="bottom" constant="19" id="Zah-IO-Rt8"/>
+                <constraint firstItem="u2d-qI-tHC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VX8-hS-vJ4" secondAttribute="trailing" constant="10" id="emf-T3-v87"/>
+                <constraint firstItem="VX8-hS-vJ4" firstAttribute="baseline" secondItem="u2d-qI-tHC" secondAttribute="baseline" constant="1" id="f9K-Dl-yn3"/>
+                <constraint firstItem="qoS-nw-TEY" firstAttribute="leading" secondItem="rpZ-jC-BLP" secondAttribute="leading" constant="15" id="m9r-7I-FYb"/>
+                <constraint firstItem="VX8-hS-vJ4" firstAttribute="top" secondItem="rpZ-jC-BLP" secondAttribute="top" constant="20" id="zPo-Ho-nOV"/>
+            </constraints>
+        </collectionViewCell>
+    </objects>
+</document>

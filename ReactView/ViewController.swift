@@ -21,6 +21,8 @@ class ViewController: UIViewController, UISearchBarDelegate {
 
         let json : AnyObject? = JSONLoader(name: "products").json
         self.products = (json as? NSDictionary)?["products"] as? [NSDictionary]
+
+        self.collectionView.registerNib(UINib(nibName: "Cell", bundle: nil), forCellWithReuseIdentifier: "cell")
         self.collectionPresenter = CollectionPresenter(collectionView: self.collectionView)
         let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
         flowLayout?.itemSize.width = self.view.frame.size.width
@@ -53,7 +55,9 @@ class ViewController: UIViewController, UISearchBarDelegate {
                     }
                 }.map {
                     product -> ItemPresenter in
-                    return ProductPresenter(identifier: "cell", product: product)
+                    let presenter = ProductPresenter(identifier: "cell", product: product)
+                    presenter.nib = UINib(nibName: "Cell", bundle: nil)
+                    return presenter
                 }.reduce([SectionPresenter]()) {
 
                     var sections = $0
@@ -104,7 +108,7 @@ struct Product {
     }
 }
 
-class ProductPresenter : ItemPresenter {
+class ProductPresenter : ItemNibPresenter {
 
     var product : Product!
 
@@ -126,5 +130,7 @@ class ProductPresenter : ItemPresenter {
         self.nameLabel?.textColor = product.stocked ? UIColor.blackColor() : UIColor.redColor()
         self.priceLabel?.text = product.price
     }
+
+
 }
 

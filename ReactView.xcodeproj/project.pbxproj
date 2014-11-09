@@ -16,6 +16,7 @@
 		1A7E0BF41A0D28410079DCA3 /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A7E0BF31A0D28410079DCA3 /* products.json */; };
 		1A7E0BF61A0D289C0079DCA3 /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E0BF51A0D289C0079DCA3 /* JSONLoader.swift */; };
 		1A7E0BF91A0D475C0079DCA3 /* CollectionViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E0BF81A0D475C0079DCA3 /* CollectionViewPresenter.swift */; };
+		1ABC3D7A1A0F2DBA00655F3C /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ABC3D791A0F2DBA00655F3C /* Cell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		1A7E0BF51A0D289C0079DCA3 /* JSONLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
 		1A7E0BF71A0D3C320079DCA3 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		1A7E0BF81A0D475C0079DCA3 /* CollectionViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewPresenter.swift; sourceTree = "<group>"; };
+		1ABC3D791A0F2DBA00655F3C /* Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				1A7E0BD11A0D27830079DCA3 /* Supporting Files */,
 				1A7E0BF71A0D3C320079DCA3 /* MyPlayground.playground */,
 				1A7E0BF81A0D475C0079DCA3 /* CollectionViewPresenter.swift */,
+				1ABC3D791A0F2DBA00655F3C /* Cell.xib */,
 			);
 			path = ReactView;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A7E0BD91A0D27830079DCA3 /* Main.storyboard in Resources */,
+				1ABC3D7A1A0F2DBA00655F3C /* Cell.xib in Resources */,
 				1A7E0BF41A0D28410079DCA3 /* products.json in Resources */,
 				1A7E0BDE1A0D27830079DCA3 /* LaunchScreen.xib in Resources */,
 				1A7E0BDB1A0D27830079DCA3 /* Images.xcassets in Resources */,
@@ -419,6 +423,7 @@
 				1A7E0BEF1A0D27840079DCA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1A7E0BF01A0D27840079DCA3 /* Build configuration list for PBXNativeTarget "ReactViewTests" */ = {
 			isa = XCConfigurationList;
@@ -427,6 +432,7 @@
 				1A7E0BF21A0D27840079DCA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

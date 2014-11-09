@@ -21,14 +21,15 @@ class ViewController: UIViewController, UISearchBarDelegate {
 
         let json : AnyObject? = JSONLoader(name: "products").json
         self.products = (json as? NSDictionary)?["products"] as? [NSDictionary]
+        self.collectionPresenter = CollectionPresenter(collectionView: self.collectionView)
+        let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        flowLayout?.itemSize = CGSize(width: self.view.frame.size.width, height: flowLayout!.itemSize.height)
+
         self.display()
     }
 
     func display() {
 
-        let collectionPresenter = CollectionPresenter(collectionView: self.collectionView)
-        let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
-        flowLayout?.itemSize = CGSize(width: self.view.frame.size.width, height: flowLayout!.itemSize.height)
 
         if let products = self.products {
 
@@ -67,11 +68,10 @@ class ViewController: UIViewController, UISearchBarDelegate {
                     return sections
             }
 
-            collectionPresenter.sections = sections
+            self.collectionPresenter?.sections = sections
         }
         
-        self.collectionPresenter = collectionPresenter
-        collectionPresenter.display()
+        self.collectionPresenter?.display()
     }
 
     @IBAction func switchValueDidChange(sender: UISwitch) {

@@ -94,7 +94,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
 
 }
 
-struct Product {
+class Product : NSObject {
     var category : String?
     var name : String?
     var price : String?
@@ -105,6 +105,13 @@ struct Product {
         self.name = dictionary["name"] as? String
         self.price = dictionary["price"] as? String
         self.stocked = (dictionary["stocked"] as? NSNumber)?.boolValue ?? false
+    }
+
+    override func isEqual(object: AnyObject?) -> Bool {
+        if let other: Product = object as? Product {
+            return other.name == self.name
+        }
+        return false
     }
 }
 
@@ -131,6 +138,12 @@ class ProductPresenter : ItemNibPresenter {
         self.priceLabel?.text = product.price
     }
 
+    override func isEqual(object: AnyObject?) -> Bool {
+        if let other: ProductPresenter = object as? ProductPresenter {
+            return other.product.isEqual(self)
+        }
+        return false
+    }
 
 }
 

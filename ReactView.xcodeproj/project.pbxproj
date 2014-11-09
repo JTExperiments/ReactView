@@ -17,6 +17,12 @@
 		1A7E0BF61A0D289C0079DCA3 /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E0BF51A0D289C0079DCA3 /* JSONLoader.swift */; };
 		1A7E0BF91A0D475C0079DCA3 /* CollectionViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E0BF81A0D475C0079DCA3 /* CollectionViewPresenter.swift */; };
 		1ABC3D7A1A0F2DBA00655F3C /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ABC3D791A0F2DBA00655F3C /* Cell.xib */; };
+		1AF3A4131A0FBA0100E9348A /* React.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AF3A4121A0FBA0100E9348A /* React.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1AF3A4191A0FBA0100E9348A /* React.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF3A40E1A0FBA0100E9348A /* React.framework */; };
+		1AF3A4221A0FBA0100E9348A /* ReactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF3A4211A0FBA0100E9348A /* ReactTests.swift */; };
+		1AF3A4251A0FBA0100E9348A /* React.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF3A40E1A0FBA0100E9348A /* React.framework */; };
+		1AF3A4261A0FBA0100E9348A /* React.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF3A40E1A0FBA0100E9348A /* React.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1AF3A42E1A0FBA1100E9348A /* ChangeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF3A4071A0FB9DF00E9348A /* ChangeSet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,7 +33,42 @@
 			remoteGlobalIDString = 1A7E0BCD1A0D27830079DCA3;
 			remoteInfo = ReactView;
 		};
+		1AF3A41A1A0FBA0100E9348A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A7E0BC61A0D27830079DCA3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1AF3A40D1A0FBA0100E9348A;
+			remoteInfo = React;
+		};
+		1AF3A41C1A0FBA0100E9348A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A7E0BC61A0D27830079DCA3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A7E0BCD1A0D27830079DCA3;
+			remoteInfo = ReactView;
+		};
+		1AF3A4231A0FBA0100E9348A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A7E0BC61A0D27830079DCA3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1AF3A40D1A0FBA0100E9348A;
+			remoteInfo = React;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1AF3A42A1A0FBA0100E9348A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1AF3A4261A0FBA0100E9348A /* React.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1A7E0BCE1A0D27830079DCA3 /* ReactView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +86,13 @@
 		1A7E0BF71A0D3C320079DCA3 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		1A7E0BF81A0D475C0079DCA3 /* CollectionViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewPresenter.swift; sourceTree = "<group>"; };
 		1ABC3D791A0F2DBA00655F3C /* Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
+		1AF3A4071A0FB9DF00E9348A /* ChangeSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChangeSet.swift; path = ReactView/ChangeSet.swift; sourceTree = SOURCE_ROOT; };
+		1AF3A40E1A0FBA0100E9348A /* React.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = React.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AF3A4111A0FBA0100E9348A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AF3A4121A0FBA0100E9348A /* React.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = React.h; sourceTree = "<group>"; };
+		1AF3A4181A0FBA0100E9348A /* ReactTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AF3A4201A0FBA0100E9348A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AF3A4211A0FBA0100E9348A /* ReactTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AF3A4251A0FBA0100E9348A /* React.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +108,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AF3A40A1A0FBA0100E9348A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AF3A4151A0FBA0100E9348A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AF3A4191A0FBA0100E9348A /* React.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +134,8 @@
 			children = (
 				1A7E0BD01A0D27830079DCA3 /* ReactView */,
 				1A7E0BE61A0D27840079DCA3 /* ReactViewTests */,
+				1AF3A40F1A0FBA0100E9348A /* React */,
+				1AF3A41E1A0FBA0100E9348A /* ReactTests */,
 				1A7E0BCF1A0D27830079DCA3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -79,6 +145,8 @@
 			children = (
 				1A7E0BCE1A0D27830079DCA3 /* ReactView.app */,
 				1A7E0BE31A0D27840079DCA3 /* ReactViewTests.xctest */,
+				1AF3A40E1A0FBA0100E9348A /* React.framework */,
+				1AF3A4181A0FBA0100E9348A /* ReactTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,7 +194,53 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		1AF3A40F1A0FBA0100E9348A /* React */ = {
+			isa = PBXGroup;
+			children = (
+				1AF3A4121A0FBA0100E9348A /* React.h */,
+				1AF3A4071A0FB9DF00E9348A /* ChangeSet.swift */,
+				1AF3A4101A0FBA0100E9348A /* Supporting Files */,
+			);
+			path = React;
+			sourceTree = "<group>";
+		};
+		1AF3A4101A0FBA0100E9348A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1AF3A4111A0FBA0100E9348A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1AF3A41E1A0FBA0100E9348A /* ReactTests */ = {
+			isa = PBXGroup;
+			children = (
+				1AF3A4211A0FBA0100E9348A /* ReactTests.swift */,
+				1AF3A41F1A0FBA0100E9348A /* Supporting Files */,
+			);
+			path = ReactTests;
+			sourceTree = "<group>";
+		};
+		1AF3A41F1A0FBA0100E9348A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1AF3A4201A0FBA0100E9348A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1AF3A40B1A0FBA0100E9348A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AF3A4131A0FBA0100E9348A /* React.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		1A7E0BCD1A0D27830079DCA3 /* ReactView */ = {
@@ -136,10 +250,12 @@
 				1A7E0BCA1A0D27830079DCA3 /* Sources */,
 				1A7E0BCB1A0D27830079DCA3 /* Frameworks */,
 				1A7E0BCC1A0D27830079DCA3 /* Resources */,
+				1AF3A42A1A0FBA0100E9348A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1AF3A4241A0FBA0100E9348A /* PBXTargetDependency */,
 			);
 			name = ReactView;
 			productName = ReactView;
@@ -164,6 +280,43 @@
 			productReference = 1A7E0BE31A0D27840079DCA3 /* ReactViewTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		1AF3A40D1A0FBA0100E9348A /* React */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1AF3A4271A0FBA0100E9348A /* Build configuration list for PBXNativeTarget "React" */;
+			buildPhases = (
+				1AF3A4091A0FBA0100E9348A /* Sources */,
+				1AF3A40A1A0FBA0100E9348A /* Frameworks */,
+				1AF3A40B1A0FBA0100E9348A /* Headers */,
+				1AF3A40C1A0FBA0100E9348A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = React;
+			productName = React;
+			productReference = 1AF3A40E1A0FBA0100E9348A /* React.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		1AF3A4171A0FBA0100E9348A /* ReactTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1AF3A42B1A0FBA0100E9348A /* Build configuration list for PBXNativeTarget "ReactTests" */;
+			buildPhases = (
+				1AF3A4141A0FBA0100E9348A /* Sources */,
+				1AF3A4151A0FBA0100E9348A /* Frameworks */,
+				1AF3A4161A0FBA0100E9348A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1AF3A41B1A0FBA0100E9348A /* PBXTargetDependency */,
+				1AF3A41D1A0FBA0100E9348A /* PBXTargetDependency */,
+			);
+			name = ReactTests;
+			productName = ReactTests;
+			productReference = 1AF3A4181A0FBA0100E9348A /* ReactTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -177,6 +330,13 @@
 						CreatedOnToolsVersion = 6.1;
 					};
 					1A7E0BE21A0D27840079DCA3 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 1A7E0BCD1A0D27830079DCA3;
+					};
+					1AF3A40D1A0FBA0100E9348A = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					1AF3A4171A0FBA0100E9348A = {
 						CreatedOnToolsVersion = 6.1;
 						TestTargetID = 1A7E0BCD1A0D27830079DCA3;
 					};
@@ -197,6 +357,8 @@
 			targets = (
 				1A7E0BCD1A0D27830079DCA3 /* ReactView */,
 				1A7E0BE21A0D27840079DCA3 /* ReactViewTests */,
+				1AF3A40D1A0FBA0100E9348A /* React */,
+				1AF3A4171A0FBA0100E9348A /* ReactTests */,
 			);
 		};
 /* End PBXProject section */
@@ -215,6 +377,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		1A7E0BE11A0D27840079DCA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AF3A40C1A0FBA0100E9348A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AF3A4161A0FBA0100E9348A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -243,6 +419,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1AF3A4091A0FBA0100E9348A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AF3A42E1A0FBA1100E9348A /* ChangeSet.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AF3A4141A0FBA0100E9348A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AF3A4221A0FBA0100E9348A /* ReactTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -250,6 +442,21 @@
 			isa = PBXTargetDependency;
 			target = 1A7E0BCD1A0D27830079DCA3 /* ReactView */;
 			targetProxy = 1A7E0BE41A0D27840079DCA3 /* PBXContainerItemProxy */;
+		};
+		1AF3A41B1A0FBA0100E9348A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1AF3A40D1A0FBA0100E9348A /* React */;
+			targetProxy = 1AF3A41A1A0FBA0100E9348A /* PBXContainerItemProxy */;
+		};
+		1AF3A41D1A0FBA0100E9348A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A7E0BCD1A0D27830079DCA3 /* ReactView */;
+			targetProxy = 1AF3A41C1A0FBA0100E9348A /* PBXContainerItemProxy */;
+		};
+		1AF3A4241A0FBA0100E9348A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1AF3A40D1A0FBA0100E9348A /* React */;
+			targetProxy = 1AF3A4231A0FBA0100E9348A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -404,6 +611,80 @@
 			};
 			name = Release;
 		};
+		1AF3A4281A0FBA0100E9348A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = React/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1AF3A4291A0FBA0100E9348A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = React/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1AF3A42C1A0FBA0100E9348A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ReactTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactView.app/ReactView";
+			};
+			name = Debug;
+		};
+		1AF3A42D1A0FBA0100E9348A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ReactTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactView.app/ReactView";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -433,6 +714,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		1AF3A4271A0FBA0100E9348A /* Build configuration list for PBXNativeTarget "React" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AF3A4281A0FBA0100E9348A /* Debug */,
+				1AF3A4291A0FBA0100E9348A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1AF3A42B1A0FBA0100E9348A /* Build configuration list for PBXNativeTarget "ReactTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AF3A42C1A0FBA0100E9348A /* Debug */,
+				1AF3A42D1A0FBA0100E9348A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

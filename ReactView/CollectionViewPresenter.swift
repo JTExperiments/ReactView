@@ -7,11 +7,46 @@
 //
 
 import UIKit
+import React
 
 class CollectionPresenter : NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     private var collectionView : UICollectionView!
+    var oldSections : [SectionPresenter]?
     var sections : [SectionPresenter]?
+        {
+        willSet {
+            oldSections = sections
+        }
+        didSet {
+            let oldValue = oldSections
+
+            switch (oldValue, sections) {
+            case let (.Some(before), .Some(after)):
+
+
+                collectionView.performBatchUpdates({
+
+                    for (i, section) in enumerate(after) {
+
+
+                        let beforeTitle = (before[i].items as NSArray).valueForKeyPath("product.name") as NSArray
+                        let afterTitle = (section.items as NSArray).valueForKeyPath("product.name") as NSArray
+
+                        let changeset = ChangeSet(before: beforeTitle, after: afterTitle)
+                        println("CollectionViewPresenter \(changeset)")
+                        changeset.apply(self.collectionView, section: i)
+                    }
+                    
+                    }, completion: { (completed) -> Void in
+                })
+
+
+            default: break
+            }
+
+        }
+    }
 
     convenience init(collectionView: UICollectionView) {
         self.init()
@@ -21,7 +56,9 @@ class CollectionPresenter : NSObject, UICollectionViewDataSource, UICollectionVi
     }
 
     func display() {
-        collectionView.reloadData()
+        if oldSections == nil {
+            collectionView.reloadData()
+        }
     }
 
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -85,7 +122,7 @@ class SectionPresenter {
     }
 }
 
-class ItemPresenter {
+class ItemPresenter : NSObject {
 
     private (set) var identifier : String!
     private (set) var section : String?
@@ -120,9 +157,8 @@ class ItemNibPresenter : ItemPresenter {
         if let cell = prototypeCell {
             self.configureCollectionViewCell(cell)
             self.display()
-            var size = cell.systemLayoutSizeFittingSize(CGSize(width: originalSize.width, height: UILayoutFittingCompressedSize.height))
+            var size = cell.systemLayoutSizeFittingSize(CGSize(width: originalSize.width, height: UILayoutFittingExpandedSize.height))
 //            size.width = originalSize.width
-            println("size \(size)")
             return size
         }
 

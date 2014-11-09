@@ -140,10 +140,14 @@ class ProductPresenter : ItemNibPresenter {
 
     override func isEqual(object: AnyObject?) -> Bool {
         if let other: ProductPresenter = object as? ProductPresenter {
-            return other.product.isEqual(self)
+            return self.product.isEqual(other.product)
         }
         return false
     }
 
+    override var description: String {
+        return self.product.name ?? "<no name>"
+    }
+    
 }
 

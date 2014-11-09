@@ -30,8 +30,8 @@ class CollectionPresenter : NSObject, UICollectionViewDataSource, UICollectionVi
                     for (i, section) in enumerate(after) {
 
 
-                        let beforeTitle = (before[i].items as NSArray).valueForKeyPath("product.name") as NSArray
-                        let afterTitle = (section.items as NSArray).valueForKeyPath("product.name") as NSArray
+                        let beforeTitle = (before[i].items as NSArray) as NSArray
+                        let afterTitle = (section.items as NSArray) as NSArray
 
                         let changeset = ChangeSet(before: beforeTitle, after: afterTitle)
                         println("CollectionViewPresenter \(changeset)")

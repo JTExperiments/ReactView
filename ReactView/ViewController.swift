@@ -23,7 +23,9 @@ class ViewController: UIViewController, UISearchBarDelegate {
         self.products = (json as? NSDictionary)?["products"] as? [NSDictionary]
         self.collectionPresenter = CollectionPresenter(collectionView: self.collectionView)
         let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
-        flowLayout?.itemSize = CGSize(width: self.view.frame.size.width, height: flowLayout!.itemSize.height)
+        flowLayout?.itemSize.width = self.view.frame.size.width
+//        flowLayout?.estimatedItemSize = CGSize(width: self.view.frame.size.width, height: flowLayout!.itemSize.height)
+
 
         self.display()
     }

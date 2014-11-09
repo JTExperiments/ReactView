@@ -5,6 +5,9 @@
                   {"category": "Sporting Goods", "price": "$29.99", "stocked": false, "name": "Basketball"},
                   {"category": "Electronics", "price": "$99.99", "stocked": true, "name": "iPod Touch"},
                   {"category": "Electronics", "price": "$399.99", "stocked": false, "name": "iPhone 5"},
-                  {"category": "Electronics", "price": "$199.99", "stocked": true, "name": "Nexus 7"}
+                  {"category": "Electronics", "price": "$199.99", "stocked": true, "name": "Nexus 7"},
+                  {"category": "Movies", "price": "$19.99", "stocked": true, "name": "X-Men: Days of Future Past"},
+                  {"category": "Movies", "price": "$29.99", "stocked": false, "name": "Harry Potter and the Order of the Phoenix"},
+                  {"category": "Movies", "price": "$39.99", "stocked": true, "name": "The Hunger Games Trilogy Box Set"},
                 ]
 }
